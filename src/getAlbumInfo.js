@@ -1,4 +1,4 @@
-const filter = require('./filter');
+const filter = require("./filter");
 
 function getAlbumInfo(json) {
   const urls = [];
@@ -8,11 +8,11 @@ function getAlbumInfo(json) {
   const album = json.albumRelease[0].name;
   const album_artist = json["byArtist"].name;
 
-  const cover = json.albumRelease[0].image.join('');
+  const cover = json.albumRelease[0].image.join("");
 
   console.log();
 
-  for (i = 0; i < json.track.numberOfItems; i++) {
+  for (let i = 0; i < json.track.numberOfItems; i++) {
     const url = json.track.itemListElement[i].item.additionalProperty[2].value;
 
     const track_number = i + 1;
@@ -25,7 +25,7 @@ function getAlbumInfo(json) {
       album: album,
       album_artist: album_artist,
       filename: `${filter(title)}.mp3`
-    }
+    };
 
     if (url == "all_rights_reserved") {
       console.log(`"${title}" is not available.`);
@@ -52,7 +52,7 @@ function printAlbumInfo(json) {
   
   console.log(`\nDigital Album: ${json.albumRelease[0].name}\n`);
 
-  for (i = 0; i < json.track.numberOfItems; i++) {
+  for (let i = 0; i < json.track.numberOfItems; i++) {
     let title = json.track.itemListElement[i].item.name;
     console.log(`${i+1}. ${title}`);
   }

@@ -6,7 +6,7 @@ function filter(string) {
     string = string.slice(0, -1);
   }
 
-  return string.split('').filter(el => !reserved_characters.includes(el)).join('');
+  return string.split("").filter(el => !reserved_characters.includes(el)).join("");
 
 }
 

@@ -1,4 +1,4 @@
-const filter = require('./filter');
+const filter = require("./filter");
 
 function getSingleInfo(json) {
   const urls = [`${json.additionalProperty[3].value}`];
@@ -11,7 +11,7 @@ function getSingleInfo(json) {
   const track_number = 1;
   const title = json.name;
 
-  const cover = json.publisher.image;
+  const cover = json.inAlbum.albumRelease[0].image[0];
 
   const track = {
     title: title,
@@ -20,7 +20,7 @@ function getSingleInfo(json) {
     album: album,
     album_artist: album_artist,
     filename: `${filter(title)}.mp3`
-  }
+  };
 
   tracks.push(track);
 

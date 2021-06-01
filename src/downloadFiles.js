@@ -1,8 +1,8 @@
-const fs = require('fs');
-const axios = require('axios');
-const stream = require('stream');
-const filter = require('./filter');
-const writeMetadata = require('./writeMetadata');
+const fs = require("fs");
+const axios = require("axios");
+const stream = require("stream");
+const filter = require("./filter");
+const writeMetadata = require("./writeMetadata");
 
 function downloadSongs(songInfo) {
   const artist = songInfo.artist;
@@ -16,7 +16,7 @@ function downloadSongs(songInfo) {
 
   // Checks if there are no downloads available
   if (urls.filter(el => el != "all_rights_reserved").length == 0) {
-    return console.log(`\nNo downloads available. Returning...`);
+    return console.log("\nNo downloads available. Returning...");
   }
   
   // Creates directories with the names of the artist and album respectively
@@ -25,7 +25,7 @@ function downloadSongs(songInfo) {
   makeDirectory(path);
   
   // Invokes the downloadSong() function for each of the URLs in the array
-  for (url of urls) {
+  for (let url of urls) {
     const index = urls.indexOf(url);
     const track = tracks[index];
     const filename = tracks[index].filename;
@@ -34,12 +34,12 @@ function downloadSongs(songInfo) {
       .then(console.log(`Downloading file "${filename}".`))
       .catch(function (error) {
         console.log(error);
-    });
+      });
   }
 
   // Downloads the album cover
   downloadCover(path, "cover.jpg", cover)
-    .then(console.log(`Downloading "cover.jpg"\n`));
+    .then(console.log("Downloading \"cover.jpg\"\n"));
 }
 
 // Creates a directory if it does not exist

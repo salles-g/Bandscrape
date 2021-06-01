@@ -5,7 +5,7 @@ function writeMetadata(path, filename, data) {
     if (error) {
       console.error("Error writing metadata", error);
     }
-  })
+  });
 }
 
 module.exports = writeMetadata;
