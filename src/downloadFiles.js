@@ -4,12 +4,7 @@ const stream = require("stream");
 const filter = require("./filter");
 const writeMetadata = require("./writeMetadata");
 
-function downloadSongs(songInfo) {
-  const artist = songInfo.artist;
-  const album = songInfo.album;
-  const tracks = songInfo.tracks;
-  const urls = songInfo.urls;
-  const cover = songInfo.cover;
+function downloadSongs({artist, album, tracks, urls, cover}) {
 
   // Sets the path as the album name with invalid characters filtered out
   const path = `./downloads/${filter(artist)}/${filter(album)}`;
