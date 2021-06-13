@@ -1,13 +1,12 @@
-const reserved_characters = ["<", ">", ":", "\"", "/", "\\", "|", "?", "*"];
+const reservedChars = new RegExp("[<>:\"\\|?*/]", "g");
 
 function filter(string) {
-
-  if (string.slice(-1) == ".") {
+  // if string ends with a dot
+  if (string.slice(-1) === ".") {
     string = string.slice(0, -1);
   }
 
-  return string.split("").filter(el => !reserved_characters.includes(el)).join("");
-
+  return string.replace(reservedChars, "");
 }
 
 module.exports = filter;
