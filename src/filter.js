@@ -1,11 +1,8 @@
 const reservedChars = new RegExp("[<>:\"\\|?*/]", "g");
+const dotAtEnd = new RegExp("[.]*$", "g");
 
 function filter(string) {
-  // if string ends with a dot
-  if (string.slice(-1) === ".") {
-    string = string.slice(0, -1);
-  }
-
+  string = string.replace(dotAtEnd, "");
   return string.replace(reservedChars, "");
 }
 
