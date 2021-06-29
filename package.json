@@ -17,7 +17,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.9",
-    "ffmetadata": "^1.7.0",
-    "css-what": ">=5.0.1"
+    "css-what": "^5.0.1",
+    "ffmetadata": "^1.7.0"
   }
 }
